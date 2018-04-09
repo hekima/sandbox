@@ -23,6 +23,11 @@ services:
     # Telegraf requires network access to InfluxDB
     links:
       - influxdb
+    expose:
+        - "8125"
+    ports:
+      # UDP Port
+        - "8125:8125/udp"
     volumes:
       # Mount for telegraf configuration
       - ./telegraf/:/etc/telegraf/
